@@ -15,6 +15,7 @@ function Modal({ open, onClose, children }) {
   //   };
   // });
 
+  // use useEffect to synchronize value to DOM API
   useEffect(() => {
     if (open) {
       dialog.current.showModal();
@@ -22,7 +23,7 @@ function Modal({ open, onClose, children }) {
       dialog.current.close();
     }
   }, [open]);
-  // dependencies are values that changes (props or state values). useEffect will reexecute when this value changes.
+  // dependencies are values that changes (props, context, state values etc). useEffect will reexecute when this value changes.
 
   return createPortal(
     <dialog className="modal" ref={dialog} onClose={onClose}>
